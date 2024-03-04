@@ -1,0 +1,19 @@
+FROM node:14-alpine AS base
+
+ENV NODE_ENV=production \
+    APP_PATH=/web
+
+WORKDIR $APP_PATH
+
+FROM base AS install
+
+COPY package.json .
+
+RUN npm install -g pm2 \
+  && npm config set registry {{private-registry}} \
+  && npm install
+
+FROM base
+COPY --from=install /usr/local/lib/node_modules /usr/local/lib/node_modules
+COPY --from=install /usr/local/bin /usr/local/bin
+COPY --from=install /$APP_PATH/node_modules ./node_modules

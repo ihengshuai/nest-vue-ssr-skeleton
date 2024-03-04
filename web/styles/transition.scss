@@ -1,0 +1,93 @@
+.move-up-enter,
+.move-up-appear {
+    animation-duration: 0.2s;
+    animation-fill-mode: both;
+    animation-play-state: paused;
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+
+.move-up-leave {
+    animation-duration: 0.2s;
+    animation-fill-mode: both;
+    animation-play-state: paused;
+    animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.34);
+}
+
+.move-up-enter.move-up-enter-active,
+.move-up-appear.move-up-appear-active {
+    animation-name: MoveUpIn;
+    animation-play-state: running;
+}
+
+.move-up-leave.move-up-leave-active {
+    animation-name: MoveOut;
+    animation-play-state: running;
+    pointer-events: none;
+}
+
+.fade-in-enter-active {
+    transition: opacity $transition ease;
+}
+
+.fade-in-enter-from {
+    opacity: 0;
+}
+
+.v-enter-active,
+.v-leave-active {
+    transition: opacity $transition ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
+}
+
+.slide-left-enter-active,
+.slide-left-leave-active {
+    transition: transform $transition ease;
+}
+
+.slide-left-enter-from,
+.slide-left-leave-to {
+    transform: translateX(-100%);
+}
+
+.zoom-enter-from,
+.zoom-leave-to {
+    transform: scale(0);
+}
+
+.zoom-enter-active,
+.zoom-leave-active {
+    transition: transform $transition ease;
+}
+
+@keyframes MoveOut {
+    0% {
+        padding: 8px;
+        max-height: 150px;
+        opacity: 1;
+    }
+
+    100% {
+        padding: 0;
+        max-height: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes MoveUpIn {
+    0% {
+        transform: translateY(-100%);
+        transform-origin: 0 0;
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0%);
+        transform-origin: 0 0;
+        opacity: 1;
+    }
+}

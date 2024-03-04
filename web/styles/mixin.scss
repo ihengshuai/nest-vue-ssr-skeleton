@@ -1,0 +1,37 @@
+@mixin single-text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@mixin multi-text-overflow($clamp: 3) {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: $clamp;
+    -webkit-box-orient: vertical;
+}
+
+@mixin flex-center-horizontal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-center-vertical {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+@mixin full-position {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+@mixin hidden-scroll-bar {
+    scrollbar-width: none;
+}
